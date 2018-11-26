@@ -114,14 +114,10 @@ export default class PreparingTree extends React.Component {
             console.log('only values ' + Values);
             SingleParentchilds.forEach((element) => 
             {
-     
-                if (Values.indexOf(element.Parent) === -1 && RootElements.indexOf(element.Parent) === -1) 
+             if (Values.indexOf(element.Parent) === -1 && RootElements.indexOf(element.Parent) === -1) 
                 {
-                  
                     RootElements.push(element.Parent);                 
                     console.log(element.Parent);
-    
-                                   
                 }
             }
             );
@@ -140,34 +136,6 @@ export default class PreparingTree extends React.Component {
 
 
 
-
-
-        //Console check ..!!!!
-        // printParentChild(sortedParentchilds);
-        // function printParentChild(sortedParentchilds)
-        // {
-        //     console.log('Inside printParentChild')
-        //     sortedParentchilds.forEach(element => {
-        //         console.log('Parent : '+element.Parent+' Child : '+element.Child);
-        //     });
-        //     console.log('End printParentChild')
-        // }
-
-        // printMParentChild(MultiParent);
-        // function printMParentChild(MultiParent)
-        // {
-        //     console.log('Inside multi parent')
-        //     MultiParent.forEach(element => {
-        //         console.log('MultiParent Parent : '+element.Parent+' Child : '+element.Child);
-        //     });
-        // }
-
-        // function printIndependentFiles(Independet)
-        // {
-        //     Independet.forEach(element => {
-        //         console.log(element.ScriptFileId);
-        //     });
-        // }
         // ************** Generate the tree diagram *****************
         var margin = { top: 40, right: 120, bottom: 20, left: 120 },
             width = 960 - margin.right - margin.left,
@@ -192,11 +160,12 @@ export default class PreparingTree extends React.Component {
             n.y0 = 0;
             update(n, index);
         });
-
         function update(source, index) {
-            //Find if the source node already exists in the tree. If exists, add source's children to existing children
-           
-            // Compute the new tree layout.
+              //Find if the source node already exists in the tree. If exists, add source's children to existing children
+              var currentTreeNodes = svg.selectAll("g.node")[0];
+              if (currentTreeNodes.length > 0)
+                  var f = currentTreeNodes.find(function (value, index) { return value.__data__.id == source.id; });
+              // Compute the new tree layout.
             var nodes = tree.nodes(source),
                 links = tree.links(nodes);
             // Normalize for fixed-depth.
