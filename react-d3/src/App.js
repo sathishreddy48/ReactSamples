@@ -1,4 +1,6 @@
-import React, { Component } from 'react';
+import React, {
+  Component
+} from 'react';
 import './App.css';
 //import Chart from './Chart'
 //import Sample from './Sample';
@@ -6,6 +8,8 @@ import './App.css';
 // import Tree2 from './Tree2'
 // import Chart from './Chart'
 import PreparingTree from './PreparingTree'
+import Tree2 from './Tree2';
+import Chart from './Chart';
 
 class App extends Component {
   constructor(props) {
@@ -16,11 +20,11 @@ class App extends Component {
       height: 500
     }
   }
- 
+
   render() {
-    return (
-      <div className="App" >
-        <PreparingTree></PreparingTree>
+    return ( <div className = "App" >
+      <Chart> </Chart> 
+      {/* <PreparingTree></PreparingTree> */}
       </div>
     );
   }

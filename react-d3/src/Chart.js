@@ -183,7 +183,8 @@ export default class Chart extends React.Component
                 //Find if the source node already exists in the tree. If exists, add source's children to existing children
                 var currentTreeNodes = svg.selectAll("g.node")[0];
                 if (currentTreeNodes.length > 0)
-                    var f = currentTreeNodes.find(function (value, index) {return value.__data__.id == source.id; });
+                    var f = currentTreeNodes.find(function (value, index) 
+                    {return value.__data__.id == source.id; });
                 // Compute the new tree layout.
                 var nodes = tree.nodes(source),
                     links = tree.links(nodes);
@@ -192,8 +193,8 @@ export default class Chart extends React.Component
                 //source.x = (index + 2) * 120;
                 source.x = source.x0;
                 nodes.forEach(function (d, childIndex) { 
-                    //d.x = source.x + (childIndex - childNodeCount / 2) * 30; 
-                    d.y = d.depth * 180; 
+                    //d.x = source.x + (childIndex - childNodeCount / 2) *20; 
+                    d.y = d.depth * 50; 
                 });
                 // Declare the nodes
                 var node = svg.selectAll("g.node")
@@ -207,12 +208,12 @@ export default class Chart extends React.Component
                 nodeEnter.append("circle")
                     .attr("r", 10)
                     .style("fill", "#fff")
-                    .on("mouseover", function(d) {
-                        highlightScriptNodeAndRow(d.id, true);
-                    })
-                    .on("mouseout", function(d) {
-                        highlightScriptNodeAndRow(d.id, false);
-                    });
+                    // .on("mouseover", function(d) {
+                    //    // highlightScriptNodeAndRow(d.id, true);
+                    // })
+                    // .on("mouseout", function(d) {
+                    //    // highlightScriptNodeAndRow(d.id, false);
+                    // });
            
                     
                 nodeEnter.append("text")
@@ -273,92 +274,87 @@ export default class Chart extends React.Component
                 });
             });
             
-            var table = document.createElement("table");
-            table.id = "scriptlist-table";
-            table.classList.add("script-table");
-            var tableHeader = document.createElement("thead");
-            var headerRow = document.createElement("tr");
-            var headerCell = document.createElement("th");
-            headerCell.innerText = "Id";
-            headerRow.appendChild(headerCell);
-            headerCell = document.createElement("th");
-            headerCell.innerText = "Script Path";
-            headerRow.appendChild(headerCell);
-            headerCell = document.createElement("th");
-            headerCell.innerText = "Status";
-            headerRow.appendChild(headerCell);
-            table.appendChild(headerRow);
+            // var table = document.createElement("table");
+            // table.id = "scriptlist-table";
+            // table.classList.add("script-table");
+            // var tableHeader = document.createElement("thead");
+            // var headerRow = document.createElement("tr");
+            // var headerCell = document.createElement("th");
+            // headerCell.innerText = "Id";
+            // headerRow.appendChild(headerCell);
+            // headerCell = document.createElement("th");
+            // headerCell.innerText = "Script Path";
+            // headerRow.appendChild(headerCell);
+            // headerCell = document.createElement("th");
+            // headerCell.innerText = "Status";
+            // headerRow.appendChild(headerCell);
+            // table.appendChild(headerRow);
                     
-            var q = [];
-            treeData.forEach(function (n) {
-                q.push(n);
-            });
+            // var q = [];
+            // treeData.forEach(function (n) {
+            //     q.push(n);
+            // });
             
-            while(q.length > 0) {
-                var n = q.shift();
-                var row = document.createElement("tr");
-                var attr = document.createAttribute("data-id");
-                attr.value = n.id;
-                row.attributes.setNamedItem(attr);
-                var cell = document.createElement("td");
-                cell.innerText = n.id;
-                row.appendChild(cell);
-                cell = document.createElement("td");
-                cell.innerText = n.name;
-                row.appendChild(cell);
-                cell = document.createElement("td");
-                cell.innerText = "";
-                row.appendChild(cell);
-                var tableBody = document.createElement("tbody");
-                table.appendChild(tableBody);
+            // while(q.length > 0) {
+            //     var n = q.shift();
+            //     var row = document.createElement("tr");
+            //     var attr = document.createAttribute("data-id");
+            //     attr.value = n.id;
+            //     row.attributes.setNamedItem(attr);
+            //     var cell = document.createElement("td");
+            //     cell.innerText = n.id;
+            //     row.appendChild(cell);
+            //     cell = document.createElement("td");
+            //     cell.innerText = n.name;
+            //     row.appendChild(cell);
+            //     cell = document.createElement("td");
+            //     cell.innerText = "";
+            //     row.appendChild(cell);
+            //     var tableBody = document.createElement("tbody");
+            //     table.appendChild(tableBody);
                 
-                row.onmouseover = function (e) {
-                    highlightScriptNodeAndRow(this.attributes.getNamedItem("data-id").value, true);
-                }
+            //     row.onmouseover = function (e) {
+            //         highlightScriptNodeAndRow(this.attributes.getNamedItem("data-id").value, true);
+            //     }
                 
-                row.onmouseout = function (e) {
-                    highlightScriptNodeAndRow(this.attributes.getNamedItem("data-id").value, false);
-                }
-                tableBody.appendChild(row);
+            //     row.onmouseout = function (e) {
+            //         highlightScriptNodeAndRow(this.attributes.getNamedItem("data-id").value, false);
+            //     }
+            //     tableBody.appendChild(row);
                 
-                if (n.children && n.children !== null) {
-                    n.children.forEach(function (c) {
-                        q.push(c);
-                    });
-                }
-            }
-            document.body.appendChild(table);
+            //     if (n.children && n.children !== null) {
+            //         n.children.forEach(function (c) {
+            //             q.push(c);
+            //         });
+            //     }
+            // }
+            // document.body.appendChild(table);
             
-            function highlightScriptNodeAndRow(id, state) {
-                var rows = document.getElementsByTagName("tr");
-                for(var i = 0; i < rows.length; i++) {
-                    var tr = rows[i];
-                    tr.classList.remove("highlight");
-                    if (state && tr.attributes.getNamedItem("data-id") && tr.attributes.getNamedItem("data-id").value.toString() === id.toString())
-                        tr.classList.add("highlight");
-                }
+            // function highlightScriptNodeAndRow(id, state) {
+            //     var rows = document.getElementsByTagName("tr");
+            //     for(var i = 0; i < rows.length; i++) {
+            //         var tr = rows[i];
+            //         tr.classList.remove("highlight");
+            //         if (state && tr.attributes.getNamedItem("data-id") && tr.attributes.getNamedItem("data-id").value.toString() === id.toString())
+            //             tr.classList.add("highlight");
+            //     }
                 
-                var allNodes = svg.selectAll("g.node")[0];
-                var searchedNode = allNodes.filter(function (n) {
-                    n.childNodes[0].classList.remove("highlight");
-                    return n.__data__.id.toString() === id.toString();
-                })[0];
-                if (state && searchedNode && searchedNode != null) {
-                    searchedNode.childNodes[0].classList.add("highlight");
-                }
-            }      
+            //     var allNodes = svg.selectAll("g.node")[0];
+            //     var searchedNode = allNodes.filter(function (n) {
+            //         n.childNodes[0].classList.remove("highlight");
+            //         return n.__data__.id.toString() === id.toString();
+            //     })[0];
+            //     if (state && searchedNode && searchedNode != null) {
+            //         searchedNode.childNodes[0].classList.add("highlight");
+            //     }
+            // }      
  
     }
           
     render(){
       return (
         <div>
-      <div id="#root"></div>
-       <svg  height='300' width='200'>
-          <circle cx="60" cy="60" r="50"/>
-          {/* <rect x='30' y='40' width='20' height='10' fill='green'>
-          </rect> */}
-        </svg>
+     
       </div>
       );
       
