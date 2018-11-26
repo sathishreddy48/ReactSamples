@@ -68,35 +68,59 @@ export default class SimpleTree extends React.Component {
           }
         ],
       },
-      // {
-      //   "SystemTag": "MSQ",
-      //   "ScriptGroupId": 2,
-      //   "PatchId": 1,
-      //   "ReleaseStatus": "Pending",
-      //   "FilePath": "\\\\I01BA1CSQLDOM02\\CDConfigurationScripts\\MSQ-ECDM\\2018\\10\\04\\Patch1_SC1_MSQ-ECDM_Deployment_20181003101020.sql",
-      //   "ScriptFileId": 1,
-      //   "children": [{
-      //       "ScriptFileId": 2,
-      //       "FilePath": "\\\\I01BA1CSQLDOM02\\CDConfigurationScripts\\MSQ-ECDM\\2018\\10\\05\\Patch1_SC2_MSQ-ECDM_Deployment_20181003101020.sql",
-      //       "Status": "Pending"
-      //     },
-      //     {
-      //       "ScriptFileId": 3,
-      //       "FilePath": "\\\\I01BA1CSQLDOM02\\CDConfigurationScripts\\MSQ-ECDM\\2018\\10\\05\\Patch1_SC2_MSQ-ECDM_Deployment_20181003101020.sql",
-      //       "Status": "Pending"
-      //     },
-      //     {
-      //       "ScriptFileId": 4,
-      //       "FilePath": "\\\\I01BA1CSQLDOM02\\CDConfigurationScripts\\MSQ-ECDM\\2018\\10\\05\\Patch1_SC2_MSQ-ECDM_Deployment_20181003101020.sql",
-      //       "Status": "Pending"
-      //     }
-      //   ]
-      // }
+      {
+        "SystemTag": "MSQ",
+        "ScriptGroupId": 2,
+        "PatchId": 1,
+        "ReleaseStatus": "Pending",
+        "FilePath": "\\\\I01BA1CSQLDOM02\\CDConfigurationScripts\\MSQ-ECDM\\2018\\10\\04\\Patch1_SC1_MSQ-ECDM_Deployment_20181003101020.sql",
+        "ScriptFileId": 1,
+        "children": [{
+            "ScriptFileId": 2,
+            "FilePath": "\\\\I01BA1CSQLDOM02\\CDConfigurationScripts\\MSQ-ECDM\\2018\\10\\05\\Patch1_SC2_MSQ-ECDM_Deployment_20181003101020.sql",
+            "Status": "Pending"
+          },
+          {
+            "ScriptFileId": 3,
+            "FilePath": "\\\\I01BA1CSQLDOM02\\CDConfigurationScripts\\MSQ-ECDM\\2018\\10\\05\\Patch1_SC2_MSQ-ECDM_Deployment_20181003101020.sql",
+            "Status": "Pending"
+          },
+          {
+            "ScriptFileId": 4,
+            "FilePath": "\\\\I01BA1CSQLDOM02\\CDConfigurationScripts\\MSQ-ECDM\\2018\\10\\05\\Patch1_SC2_MSQ-ECDM_Deployment_20181003101020.sql",
+            "Status": "Pending"
+          }
+        ]
+      },
+      {
+        "SystemTag": "MSQ",
+        "ScriptGroupId": 2,
+        "PatchId": 1,
+        "ReleaseStatus": "Pending",
+        "FilePath": "\\\\I01BA1CSQLDOM02\\CDConfigurationScripts\\MSQ-ECDM\\2018\\10\\04\\Patch1_SC1_MSQ-ECDM_Deployment_20181003101020.sql",
+        "ScriptFileId": 21,
+        "children": [{
+            "ScriptFileId": 22,
+            "FilePath": "\\\\I01BA1CSQLDOM02\\CDConfigurationScripts\\MSQ-ECDM\\2018\\10\\05\\Patch1_SC2_MSQ-ECDM_Deployment_20181003101020.sql",
+            "Status": "Pending"
+          },
+          {
+            "ScriptFileId": 23,
+            "FilePath": "\\\\I01BA1CSQLDOM02\\CDConfigurationScripts\\MSQ-ECDM\\2018\\10\\05\\Patch1_SC2_MSQ-ECDM_Deployment_20181003101020.sql",
+            "Status": "Pending"
+          },
+          {
+            "ScriptFileId": 24,
+            "FilePath": "\\\\I01BA1CSQLDOM02\\CDConfigurationScripts\\MSQ-ECDM\\2018\\10\\05\\Patch1_SC2_MSQ-ECDM_Deployment_20181003101020.sql",
+            "Status": "Pending"
+          }
+        ]
+      }
     ];
 
     var NoofRoots=treeData.length;
     // ************** Generate the tree diagram  *****************
-    var margin = {top: 20,right: 0,bottom: 0, left: 0 },
+    var margin = {top: 20,right: 0,bottom: 0, left:0 },
       width = 960 - margin.right - margin.left,
       height = 500 - margin.top - margin.bottom;
     var i = 0;
@@ -112,8 +136,8 @@ export default class SimpleTree extends React.Component {
             });
       var svg = d3.select("#Tree" + k).append("svg")
         .attr('id', 'svg' + k)
-        .attr("width", (width))
-        .attr("height", height)
+        .attr("width", (width/NoofRoots)+ margin.right + margin.left)
+        .attr("height", height+margin.top + margin.bottom)
         .append("g")
         .attr("transform","translate(" + margin.left + "," + margin.top+ ")");
 
