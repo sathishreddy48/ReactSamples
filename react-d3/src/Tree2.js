@@ -81,17 +81,17 @@ export default class Tree2 extends React.Component{
             .attr("y", function (d) { return d.children ? -20 : 20; })
             .style("text-anchor", "middle")
             .text(function (d) { return d.data.name; });
-         // adds the links between the nodes
-        // var link = g.selectAll(".link")
-        //     .data(nodes.descendants().slice(1))
-        //     .enter().append("path")
-        //     .attr("class", "link")
-        //     .attr("d", function (d) {
-        //         return "M" + d.x + "," + d.y
-        //             + "C" + d.x + "," + (d.y + d.parent.y) / 2
-        //             + " " + d.parent.x + "," + (d.y + d.parent.y) / 2
-        //             + " " + d.parent.x + "," + d.parent.y;
-        //     });
+        // adds the links between the nodes
+        var link = g.selectAll(".link")
+            .data(nodes.descendants().slice(1))
+            .enter().append("path")
+            .attr("class", "link")
+            .attr("d", function (d) {
+                return "M" + d.x + "," + d.y
+                    + "C" + d.x + "," + (d.y + d.parent.y) / 2
+                    + " " + d.parent.x + "," + (d.y + d.parent.y) / 2
+                    + " " + d.parent.x + "," + d.parent.y;
+            });
     }
     
     render() {

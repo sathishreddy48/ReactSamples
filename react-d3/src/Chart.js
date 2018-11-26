@@ -10,67 +10,30 @@ export default class Chart extends React.Component {
 
         var treeData = [
             {
-                "id": 1,
-                "name": "\\\\servername\\sharedfoldername\\1.sql",
-                "children": [
-                    { "id": 2, "name": "\\\\servername\\sharedfoldername\\2.sql" },
-                    { "id": 3, "name": "\\\\servername\\sharedfoldername\\3.sql" }
-                ]
-            },
-            {
-                "id": 1,
-                "name": "\\\\servername\\sharedfoldername\\1.sql",
-                "children": [
-                    { "id": 11, "name": "\\\\servername\\sharedfoldername\\11.sql", }
-                ]
-            },
-            {
-                "id": 2,
-                "name": "\\\\servername\\sharedfoldername\\2.sql",
-                "children": [
-                    { "id": 4, "name": "\\\\servername\\sharedfoldername\\4.sql" },
-                    { "id": 5, "name": "\\\\servername\\sharedfoldername\\5.sql" }
-                ]
-            },
-            {
-                "id": 3,
-                "name": "\\\\servername\\sharedfoldername\\3.sql",
-                "children": [
-                    { "id": 4, "name": "\\\\servername\\sharedfoldername\\4.sql" }
-                ]
-            },
-            {
-                "id": 10,
-                "name": "\\\\servername\\sharedfoldername\\10.sql",
-                "children": [
-                    { "id": 11, "name": "\\\\servername\\sharedfoldername\\11.sql" },
-                    { "id": 12, "name": "\\\\servername\\sharedfoldername\\12.sql" }
-                ]
-            },
-            {
-                "id": 12,
-                "name": "\\\\servername\\sharedfoldername\\12.sql",
-                "children": [
-                    { "id": 13, "name": "\\\\servername\\sharedfoldername\\13.sql" }
-                ]
-            },
-            {
-                "id": 2,
-                "name": "\\\\servername\\sharedfoldername\\2.sql",
-                "children": [
-                    { "id": 6, "name": "\\\\servername\\sharedfoldername\\6.sql" },
-                    { "id": 7, "name": "\\\\servername\\sharedfoldername\\7.sql" }
-                ]
-            },
-            {
-                "id": 6,
-                "name": "\\\\servername\\sharedfoldername\\6.sql",
-                "children": [
-                    { "id": 8, "name": "\\\\servername\\sharedfoldername\\8.sql" },
-                    { "id": 9, "name": "\\\\servername\\sharedfoldername\\9.sql" }
-                ]
-            },
-        ];
+              "SystemTag": "MSQ",
+              "ScriptGroupId": 2,
+              "PatchId": 1,
+              "ReleaseStatus": "Pending",
+              "FilePath": "\\\\I01BA1CSQLDOM02\\CDConfigurationScripts\\MSQ-ECDM\\2018\\10\\04\\Patch1_SC1_MSQ-ECDM_Deployment_20181003101020.sql",
+              "ScriptFileId": 3,
+              "children": [
+                {
+                  "ScriptFileId": 4,
+                  "FilePath": "\\\\I01BA1CSQLDOM02\\CDConfigurationScripts\\MSQ-ECDM\\2018\\10\\05\\Patch1_SC2_MSQ-ECDM_Deployment_20181003101020.sql",
+                  "Status": "Pending"
+                }
+              ]
+            }
+            // {
+            //   "SystemTag": "MSQ",
+            //   "ScriptGroupId": 2,
+            //   "PatchId": 1,
+            //   "ReleaseStatus": "Pending",
+            //   "FilePath": "\\\\I01BA1CSQLDOM02\\CDConfigurationScripts\\MSQ-ECDM\\2018\\10\\05\\Patch1_SC2_MSQ-ECDM_Deployment_20181003101020.sql",
+            //   "ScriptFileId": 5,
+            //   "children": []
+            // }
+          ];
 
         for (var i = treeData.length - 1; i > 0; i--) {
             for (var j = 0; j < i; j++) {

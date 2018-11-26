@@ -4,7 +4,7 @@ import './App.css';
 //import Sample from './Sample';
 // import TreeComponent from './TreeComponent'
 // import Tree2 from './Tree2'
-// import Chart from './Chart'
+ import Chart from './Chart'
 import PreparingTree from './PreparingTree'
 import MultiRoot from './MultiRoot';
 
@@ -21,8 +21,9 @@ class App extends Component {
   render() {
     return (
       <div className="App" >
-        {/* <PreparingTree></PreparingTree> */}
-       <MultiRoot></MultiRoot>
+        {/* <Chart></Chart> */}
+        {/* <MultiRoot></MultiRoot> */}
+        <PreparingTree></PreparingTree>
       </div>
     );
   }
