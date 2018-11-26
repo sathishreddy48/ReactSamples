@@ -6,6 +6,7 @@ import './App.css';
 // import Tree2 from './Tree2'
 // import Chart from './Chart'
 import PreparingTree from './PreparingTree'
+import MultiRoot from './MultiRoot';
 
 class App extends Component {
   constructor(props) {
@@ -20,7 +21,8 @@ class App extends Component {
   render() {
     return (
       <div className="App" >
-        <PreparingTree></PreparingTree>
+        {/* <PreparingTree></PreparingTree> */}
+       <MultiRoot></MultiRoot>
       </div>
     );
   }
