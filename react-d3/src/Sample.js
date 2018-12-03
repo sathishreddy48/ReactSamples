@@ -22,7 +22,29 @@ export default class Sample extends React.Component
          .attr("fill", "green")             
  
 }
-          
+  
+// SampleLoop()
+// {
+//   <div className="env-table-row" >
+//   {
+     
+//       this.state.KPIList.map(kpi =>                            
+//           <div style={{ display: "table-cell", paddingLeft: "29px" }} >
+//               <div className="shape Greencircle">
+//                   <div className="circle-content">
+//                   <div className="circle-KPI-title">{kpi.Title}</div>
+//                       {Object.keys(kpi).slice(1).map(elem=>
+//                         <div className="circle-KPI-content">{elem} :{kpi[elem]} </div>
+//                        )
+//                       }                                        
+//                   </div>
+//               </div>                         
+//           </div>
+         
+//       )
+//   }
+// </div>
+// }
 render(){
   return (
     <div>

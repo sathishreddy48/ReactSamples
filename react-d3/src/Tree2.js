@@ -23,10 +23,7 @@ export default class Tree2 extends React.Component{
                         { "name": "Child - B-1" },
                         { "name": "Child - B-2" }
                     ]
-                },
-                { "name": "C" },
-                { "name": "D" },
-                { "name": "Child - A-2" }
+                }
             ]
         };
 
